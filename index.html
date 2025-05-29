@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> Nazmul's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/"><img src="logo.png" alt="Nazmul D Logo" /></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content horizontal">
+                <div class="hero-text">
+                    <h1>Hello, I'm <span class="highlight">Nazmul</span></h1>
+                    <p class="typing-text">
+                        I'm a <span id="typed-text" class="typed"></span><span class="cursor">|</span>
+                    </p>
+                </div>
+                <a href="https://www.linkedin.com/in/nazmuld" target="_blank">
+                    <img src="Profile_Picture.png" alt="Your Name" class="profile-img" />
+                </a>
+                </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>
+                I’m a professional developer with experience in modern web technologies like
+                HTML, CSS, JavaScript, and frameworks like React. I build accessible,
+                fast, and visually appealing websites and applications for businesses and personal brands.
+            </p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Schedule Enroller</h3>
+                    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Coming Soon" class="coming-soon-gif">
+                    <p>Coming Soon</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Two</h3>
+                    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Coming Soon" class="coming-soon-gif">
+                    <p>Coming Soon</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via email or connect on LinkedIn or GitHub:</p>
+            <ul class="contact-info">
+                <li>
+                    <a href="mailto:NazmulhDewan@example.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/NazmulD" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/NazmulD1" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        
+        
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Nazmul. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const words = ["Developer", "Educator", "Strategist", "Entreprenuer"];
+        let i = 0;
+        let j = 0;
+        let isDeleting = false;
+
+        function type() {
+            const typedText = document.getElementById("typed-text");
+            if (!typedText) return;
+
+            const currentWord = words[i];
+            if (!isDeleting) {
+                typedText.textContent = currentWord.substring(0, j + 1);
+                j++;
+                if (j === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1500); // Pause before deleting
+                    return;
+                }
+            } else {
+                typedText.textContent = currentWord.substring(0, j - 1);
+                j--;
+                if (j === 0) {
+                    isDeleting = false;
+                    i = (i + 1) % words.length;
+                }
+            }
+
+            setTimeout(type, isDeleting ? 60 : 100);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            type();
+        });
+    </script>
+</body>
+</html>
